@@ -239,11 +239,19 @@ namespace SkyrimRandomCharacterGenerator
             return result;
         }
 
+        private void GenerateRace()
+        {
+            string[] races = new string[] { "Argonian","Breton","Dark Elf","High Elf","Imperial","Khajiit","Nord","Orc","Redguard","Wood Elf" };
+            int raceNum = RollRandom(0, races.Length);
+            RaceTextBox.Text = "Race: " + races[raceNum];
+        }
+
         private void GenerateCharacter(object sender, RoutedEventArgs e)
         {
             SpiritWeaponTextBox.Text = "";
             String mainSkill = RollMainSkill();
             MainSkillTextBox.Text = "Main Skill: " + mainSkill;
+            GenerateRace();
 
 
         }
