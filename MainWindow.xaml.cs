@@ -245,6 +245,14 @@ namespace SkyrimRandomCharacterGenerator
             int raceNum = RollRandom(0, races.Length);
             RaceTextBox.Text = "Race: " + races[raceNum];
         }
+        private void GenerateGender()
+        {
+            int gender = RollRandom(1, 3);
+            if (gender == 1)
+                GenderTextBox.Text = "Gender: Male";
+            else
+                GenderTextBox.Text = "Gender: Female";
+        }
 
         private void GenerateCharacter(object sender, RoutedEventArgs e)
         {
@@ -252,6 +260,7 @@ namespace SkyrimRandomCharacterGenerator
             String mainSkill = RollMainSkill();
             MainSkillTextBox.Text = "Main Skill: " + mainSkill;
             GenerateRace();
+            GenerateGender();
 
 
         }

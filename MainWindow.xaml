@@ -12,6 +12,7 @@
             <TextBlock x:Name="MainSkillTextBox" Text=""></TextBlock>
             <TextBlock x:Name="SpiritWeaponTextBox" Text=""></TextBlock>
             <TextBlock x:Name="RaceTextBox" Text=""></TextBlock>
+            <TextBlock x:Name="GenderTextBox" Text=""></TextBlock>
         </StackPanel>
 
     </Grid>
