@@ -253,6 +253,19 @@ namespace SkyrimRandomCharacterGenerator
             else
                 GenderTextBox.Text = "Gender: Female";
         }
+        private void GenerateAlignment()
+        {
+            string[] alignments = new string[] { "Lawful Good","Lawful Neutral","Lawful Evil","Neutral Good","True Neutral","Neutral Evil","Chaotic Good","Chaotic Neutral","Chaotic Evil" };
+            int alignmentNum = RollRandom(0, alignments.Length);
+            AlignmentTextBox.Text = "Alignment: " + alignments[alignmentNum];
+        }
+
+        private void GeneratePersonality()
+        {
+            string[] personalities = new string[] {"INTJ", "INTP", "ENTJ", "ENTP", "INFJ","ENFJ","INFP","ENFP","ISTJ","ISFJ","ESTJ","ESFJ","ISTP","ESTP","ISFP","ESFP"};
+            int personalityNum = RollRandom(0, personalities.Length);
+            PeronalityTextBox.Text = "Peronality Type: " + personalities[personalityNum];
+        }
 
         private void GenerateCharacter(object sender, RoutedEventArgs e)
         {
@@ -261,8 +274,8 @@ namespace SkyrimRandomCharacterGenerator
             MainSkillTextBox.Text = "Main Skill: " + mainSkill;
             GenerateRace();
             GenerateGender();
-
-
+            GenerateAlignment();
+            GeneratePersonality();
         }
     }
 }
