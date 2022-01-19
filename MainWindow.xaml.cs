@@ -49,11 +49,11 @@ namespace SkyrimRandomCharacterGenerator
             int skillNum;
             if (skillType == "physical")
             {
-                skillNum = RollRandom(1, 5);
+                skillNum = RollRandom(1, 4);
             }
             else
             {
-                skillNum = RollRandom(5, 10);
+                skillNum = RollRandom(4, 9);
             }
             return skillNum;
         }
@@ -69,19 +69,35 @@ namespace SkyrimRandomCharacterGenerator
                     if (dual == true)
                         mainSkill = "One Handed - Dual Swords";
                     else
-                        mainSkill = "One Handed - Sword And Shield";
+                    {
+                        if (RollRandom(1, 3) == 1)
+                            mainSkill = "One Handed - Sword And Shield";
+                        else
+                            mainSkill = "One Handed - Sword and Spell";
+                        
+                    }
                     return mainSkill;
                 case 2:
                     if (dual == true)
                         mainSkill = "One Handed - Dual Axes";
                     else
-                        mainSkill = "One Handed - Axe And Shield";
+                    {
+                        if (RollRandom(1, 3) == 1)
+                            mainSkill = "One Handed - Axe And Shield";
+                        else
+                            mainSkill = "One Handed - Axe and Spell";
+                    }
                     return mainSkill;
                 case 3:
                     if (dual == true)
                         mainSkill = "One Handed - Dual Maces";
                     else
-                        mainSkill = "One Handed - Mace And Shield";
+                    {
+                        if (RollRandom(1, 3) == 1)
+                            mainSkill = "One Handed - Mace And Shield";
+                        else
+                            mainSkill = "One Handed - Mace and Spell";
+                    }
                     return mainSkill;
                 case 4:
                     mainSkill = "One Handed - Daggers";
@@ -112,12 +128,62 @@ namespace SkyrimRandomCharacterGenerator
             }
             return "Error, Two handed case not handled";
         }
+        private String RollArchery(int weaponType)
+        {
+            String mainSkill;
+            if (weaponType == 1)
+                mainSkill = "Archery - Bow and Arrow";
+            else
+                mainSkill = "Archery - Crossbow";
+            return mainSkill;
+        }
+        private String RollConjuration(int magicType)
+        {
+            String mainSkill;
+            if (magicType == 1)
+                mainSkill = "Atronach Conjuration";
+            else if (magicType == 2)
+                mainSkill = "Daedra Conjuration";
+            else
+                mainSkill = "Necro Conjuration";
+            RollSpiritWeapon();
+            return mainSkill;
+        }
+        private void RollSpiritWeapon()
+        {
+            int weaponType = RollRandom(1, 4);
+            if (weaponType == 1)
+                SpiritWeaponTextBox.Text = "Spirit Weapon: Sword";
+            else if (weaponType == 2)
+                SpiritWeaponTextBox.Text = "Spirit Weapon: BattleAxe";
+            else
+                SpiritWeaponTextBox.Text = "Spirit Weapon: Archery";
+        }
+        private String RollDestruction(int magicType)
+        {
+            if (magicType == 1)
+                return "Destruction - Pyromancer";
+            else if (magicType == 2)
+                return "Destruction - Cryomancer";
+            else
+                return "Destruction - Electromancer";
+        }
+        private String RollRestoration(int magicType)
+        {
+            if (magicType == 1)
+                return "Restoration - Warder";
+            else if (magicType == 2)
+                return "Restoration - Cleanser";
+            else
+                return "Restoration - Blighter";
+        }
 
         //Select the main skill
         private String SelectSkill(int skillNum)
         {
             String mainSkill;
             int weaponType;
+            int magicType;
             switch (skillNum)
             {
                 case 1: //One Handed
@@ -137,20 +203,26 @@ namespace SkyrimRandomCharacterGenerator
                     mainSkill = RollTwoHanded(weaponType);
                     return mainSkill;
 
-                case 3: //Sneak
-                    break;
-                case 4: //Archery
-                    break;
-                case 5: //Illusion
-                    break;
-                case 6: //Conjuration
-                    break;
-                case 7: //Destruction
-                    break;
-                case 8: //Restoration
-                    break;
-                case 9: //Alteration
-                    break;
+                case 3: //Archery
+                    weaponType = RollRandom(1, 3);
+                    mainSkill = RollArchery(weaponType);
+                    return mainSkill;
+                case 4: //Illusion
+                    return ("Illusion");
+                case 5: //Conjuration
+                    magicType = RollRandom(1, 4);
+                    mainSkill = RollConjuration(magicType);
+                    return mainSkill;
+                case 6: //Destruction
+                    magicType = RollRandom(1, 4);
+                    mainSkill = RollDestruction(magicType);
+                    return mainSkill;
+                case 7: //Restoration
+                    magicType = RollRandom(1, 4);
+                    mainSkill = RollRestoration(magicType);
+                    return mainSkill;
+                case 8: //Alteration
+                    return "Alteration";
                 default:
                     Console.WriteLine("Error, rolled more than a 9");
                     break;
@@ -169,6 +241,7 @@ namespace SkyrimRandomCharacterGenerator
 
         private void GenerateCharacter(object sender, RoutedEventArgs e)
         {
+            SpiritWeaponTextBox.Text = "";
             String mainSkill = RollMainSkill();
             MainSkillTextBox.Text = "Main Skill: " + mainSkill;
 

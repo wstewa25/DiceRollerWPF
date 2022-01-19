@@ -3,13 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:SkyrimRandomCharacterGenerator"
         mc:Ignorable="d"
         Title="SkyrimChracterGenerator" Height="450" Width="800">
     <Grid>
         <Button Content="Generate Skyrim Character" Click="GenerateCharacter" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
         <StackPanel Margin="200,30,200,5">
             <TextBlock x:Name="MainSkillTextBox" Text="Main Skill: "></TextBlock>
+            <TextBlock x:Name="SpiritWeaponTextBox" Text=""></TextBlock>
         </StackPanel>
 
     </Grid>
