@@ -25,223 +25,21 @@ namespace SkyrimRandomCharacterGenerator
             InitializeComponent();
         }
 
+        List<string> MainSkillList = new List<string>();
+        List<string> SecondarySkillList = new List<string>();
+        string[] SecondarySkills = new string[5];
+
+
+
         private int RollRandom(int start, int end)
         {
             Random rnd = new Random();
             return rnd.Next(start, end);
         }
 
-        private String RollMainSkillType()
-        {
-            int typeNum = RollRandom(1, 3);
-            String skillType;
-
-            if (typeNum == 1)
-                skillType = "physical";
-            else
-                skillType = "magical";
-
-            return skillType;
-        }
-
-        private int RollSkillNum(String skillType)
-        {
-            int skillNum;
-            if (skillType == "physical")
-            {
-                skillNum = RollRandom(1, 4);
-            }
-            else
-            {
-                skillNum = RollRandom(4, 9);
-            }
-            return skillNum;
-        }
-
-
-        //Logic for Selecting Between different skill specializations in main skill
-        private String RollOneHanded(int weaponType, bool dual)
-        {
-            String mainSkill;
-            switch (weaponType)
-            {
-                case 1:
-                    if (dual == true)
-                        mainSkill = "One Handed - Dual Swords";
-                    else
-                    {
-                        if (RollRandom(1, 3) == 1)
-                            mainSkill = "One Handed - Sword And Shield";
-                        else
-                            mainSkill = "One Handed - Sword and Spell";
-                        
-                    }
-                    return mainSkill;
-                case 2:
-                    if (dual == true)
-                        mainSkill = "One Handed - Dual Axes";
-                    else
-                    {
-                        if (RollRandom(1, 3) == 1)
-                            mainSkill = "One Handed - Axe And Shield";
-                        else
-                            mainSkill = "One Handed - Axe and Spell";
-                    }
-                    return mainSkill;
-                case 3:
-                    if (dual == true)
-                        mainSkill = "One Handed - Dual Maces";
-                    else
-                    {
-                        if (RollRandom(1, 3) == 1)
-                            mainSkill = "One Handed - Mace And Shield";
-                        else
-                            mainSkill = "One Handed - Mace and Spell";
-                    }
-                    return mainSkill;
-                case 4:
-                    mainSkill = "One Handed - Daggers";
-                    return mainSkill;
-                default:
-                    Console.WriteLine("Error, rolled more than 4 weapon types One handed");
-                    break;
-            }
-            return "Error, One handed case not handled";
-        }
-        private String RollTwoHanded(int weaponType)
-        {
-            String mainSkill;
-            switch (weaponType)
-            {
-                case 1:
-                    mainSkill = "Two Handed - Greatsword";
-                    return mainSkill;
-                case 2:
-                    mainSkill = "Two Handed - Battleaxe";
-                    return mainSkill;
-                case 3:
-                    mainSkill = "Two Handed - Warhammer";
-                    return mainSkill;
-                default:
-                    Console.WriteLine("Error, rolled more than 3 weapon types on Two Handed");
-                    break;
-            }
-            return "Error, Two handed case not handled";
-        }
-        private String RollArchery(int weaponType)
-        {
-            String mainSkill;
-            if (weaponType == 1)
-                mainSkill = "Archery - Bow and Arrow";
-            else
-                mainSkill = "Archery - Crossbow";
-            return mainSkill;
-        }
-        private String RollConjuration(int magicType)
-        {
-            String mainSkill;
-            if (magicType == 1)
-                mainSkill = "Atronach Conjuration";
-            else if (magicType == 2)
-                mainSkill = "Daedra Conjuration";
-            else
-                mainSkill = "Necro Conjuration";
-            RollSpiritWeapon();
-            return mainSkill;
-        }
-        private void RollSpiritWeapon()
-        {
-            int weaponType = RollRandom(1, 4);
-            if (weaponType == 1)
-                SpiritWeaponTextBox.Text = "Spirit Weapon: Sword";
-            else if (weaponType == 2)
-                SpiritWeaponTextBox.Text = "Spirit Weapon: BattleAxe";
-            else
-                SpiritWeaponTextBox.Text = "Spirit Weapon: Archery";
-        }
-        private String RollDestruction(int magicType)
-        {
-            if (magicType == 1)
-                return "Destruction - Pyromancer";
-            else if (magicType == 2)
-                return "Destruction - Cryomancer";
-            else
-                return "Destruction - Electromancer";
-        }
-        private String RollRestoration(int magicType)
-        {
-            if (magicType == 1)
-                return "Restoration - Warder";
-            else if (magicType == 2)
-                return "Restoration - Cleanser";
-            else
-                return "Restoration - Blighter";
-        }
-
-        //Select the main skill
-        private String SelectSkill(int skillNum)
-        {
-            String mainSkill;
-            int weaponType;
-            int magicType;
-            switch (skillNum)
-            {
-                case 1: //One Handed
-                    bool dual = false;
-                    int dualWield = RollRandom(1, 3);
-                    if (dualWield == 1)
-                        dual = true;
-                    if (dual == true) //If dual weild is true, daggers are an option so roll up to 4 instead of 3
-                        weaponType = RollRandom(1, 5);
-                    else
-                        weaponType = RollRandom(1, 4);
-                    mainSkill = RollOneHanded(weaponType, dual);
-                    return mainSkill;
-
-                case 2: //Two handed
-                    weaponType = RollRandom(1, 4);
-                    mainSkill = RollTwoHanded(weaponType);
-                    return mainSkill;
-
-                case 3: //Archery
-                    weaponType = RollRandom(1, 3);
-                    mainSkill = RollArchery(weaponType);
-                    return mainSkill;
-                case 4: //Illusion
-                    return ("Illusion");
-                case 5: //Conjuration
-                    magicType = RollRandom(1, 4);
-                    mainSkill = RollConjuration(magicType);
-                    return mainSkill;
-                case 6: //Destruction
-                    magicType = RollRandom(1, 4);
-                    mainSkill = RollDestruction(magicType);
-                    return mainSkill;
-                case 7: //Restoration
-                    magicType = RollRandom(1, 4);
-                    mainSkill = RollRestoration(magicType);
-                    return mainSkill;
-                case 8: //Alteration
-                    return "Alteration";
-                default:
-                    Console.WriteLine("Error, rolled more than a 9");
-                    break;
-            }
-            return "Error, main skill not handled";
-        }
-
-        private String RollMainSkill()
-        {
-            String skillType = RollMainSkillType();
-            int skillNum = RollSkillNum(skillType);
-            String result = SelectSkill(skillNum);
-
-            return result;
-        }
-
         private void GenerateRace()
         {
-            string[] races = new string[] { "Argonian","Breton","Dark Elf","High Elf","Imperial","Khajiit","Nord","Orc","Redguard","Wood Elf" };
+            string[] races = new string[] { "Argonian", "Breton", "Dark Elf", "High Elf", "Imperial", "Khajiit", "Nord", "Orc", "Redguard", "Wood Elf" };
             int raceNum = RollRandom(0, races.Length);
             RaceTextBox.Text = "Race: " + races[raceNum];
         }
@@ -255,27 +53,475 @@ namespace SkyrimRandomCharacterGenerator
         }
         private void GenerateAlignment()
         {
-            string[] alignments = new string[] { "Lawful Good","Lawful Neutral","Lawful Evil","Neutral Good","True Neutral","Neutral Evil","Chaotic Good","Chaotic Neutral","Chaotic Evil" };
+            string[] alignments = new string[] { "Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "True Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil" };
             int alignmentNum = RollRandom(0, alignments.Length);
             AlignmentTextBox.Text = "Alignment: " + alignments[alignmentNum];
         }
-
         private void GeneratePersonality()
         {
-            string[] personalities = new string[] {"INTJ", "INTP", "ENTJ", "ENTP", "INFJ","ENFJ","INFP","ENFP","ISTJ","ISFJ","ESTJ","ESFJ","ISTP","ESTP","ISFP","ESFP"};
+            string[] personalities = new string[] { "INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "ENFJ", "INFP", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ESTP", "ISFP", "ESFP" };
             int personalityNum = RollRandom(0, personalities.Length);
             PeronalityTextBox.Text = "Peronality Type: " + personalities[personalityNum];
         }
 
+        private void PopulateMainSkills()
+        {
+            MainSkillList.Add("One Handed");
+            MainSkillList.Add("Two Handed");
+            MainSkillList.Add("Archery");
+            MainSkillList.Add("Illusion");
+            MainSkillList.Add("Conjuration");
+            MainSkillList.Add("Destruction");
+            MainSkillList.Add("Restoration");
+            MainSkillList.Add("Alteration");
+            AddRaceBias();
+        }
+        private void AddRaceBias()
+        {
+            if (RaceTextBox.Text == "Race: Argonian")
+            {
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Light Armor");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Light Armor");
+            }
+            else if (RaceTextBox.Text == "Race: Breton")
+            {
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Speech");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Speech");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Speech");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Speech");
+                SecondarySkillList.Add("Alchemy");
+            }
+            else if (RaceTextBox.Text == "Race: Dark Elf")
+            {
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Alchemy");
+
+            }
+            else if (RaceTextBox.Text == "Race: High Elf")
+            {
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Enchanting");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Enchanting");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Enchanting");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Illusion");
+                MainSkillList.Add("Conjuration");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Enchanting");
+            }
+            else if (RaceTextBox.Text == "Race: Imperial")
+            {
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Destruction");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Enchanting");
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Restoration");
+                MainSkillList.Add("Destruction");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Enchanting");
+            }
+            else if (RaceTextBox.Text == "Race: Khajiit")
+            {
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("Archery");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("Archery");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("Archery");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("Archery");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Alchemy");
+            }
+            else if (RaceTextBox.Text == "Race: Nord")
+            {
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Speech");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Speech");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Speech");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Speech");
+            }
+            else if (RaceTextBox.Text == "Race: Orc")
+            {
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Enchanting");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Enchanting");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Enchanting");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Enchanting");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Enchanting");
+                MainSkillList.Add("Two Handed");
+                MainSkillList.Add("One Handed");
+                SecondarySkillList.Add("Smithing");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Heavy Armor");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Enchanting");
+            }
+            else if (RaceTextBox.Text == "Race: Redguard")
+            {
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("Archery");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Smithing");
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("Archery");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Smithing");
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("One Handed");
+                MainSkillList.Add("Archery");
+                MainSkillList.Add("Destruction");
+                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Block");
+                SecondarySkillList.Add("Smithing");
+
+            }
+            else if (RaceTextBox.Text == "Race: Wood Elf")
+            {
+                MainSkillList.Add("Archery");
+                MainSkillList.Add("Archery");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("LockPicking");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("Archery");
+                MainSkillList.Add("Archery");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("LockPicking");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("Archery");
+                MainSkillList.Add("Archery");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("LockPicking");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Alchemy");
+                MainSkillList.Add("Archery");
+                MainSkillList.Add("Archery");
+                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Sneak");
+                SecondarySkillList.Add("LockPicking");
+                SecondarySkillList.Add("Pickpocket");
+                SecondarySkillList.Add("Alchemy");
+            }
+            else
+            {
+                Console.WriteLine("ERROR, Racial Bias not added!");
+            }
+        }
+        private void GenerateMainSkill()
+        {
+            int mainSkillNum = RollRandom(0, MainSkillList.Count);
+            string mainSkillRoll = MainSkillList[mainSkillNum];
+            AddMainSkill(mainSkillRoll);
+        }
+        private void AddMainSkill(string mainSkillRoll)
+        {
+            string mainSkill = "";
+            int roller;
+            if (mainSkillRoll == "One Handed")
+            {
+                mainSkill = RollOneHanded();
+            }
+            else if (mainSkillRoll == "Two Handed")
+            {
+                roller = RollRandom(1, 4);
+                if (roller == 1)
+                    mainSkill = "Two Handed - Greatsword";
+                if (roller == 2)
+                    mainSkill = "Two Handed - BattleAxe";
+                if (roller == 3)
+                    mainSkill = "Two Handed - WarHammer";
+            }
+            else if (mainSkillRoll == "Archery")
+            {
+                roller = RollRandom(1, 3);
+                if (roller == 1)
+                    mainSkill = "Archery - Bow and Arrow";
+                if (roller == 2)
+                    mainSkill = "Archery - Crossbow";
+            }
+            else if (mainSkillRoll == "Conjuration")
+            {
+                mainSkill = RollConjuration();
+            }
+            else if (mainSkillRoll == "Illusion")
+                mainSkill = "Illusion";
+            else if (mainSkillRoll == "Destruction")
+            {
+                roller = RollRandom(1, 4);
+                if (roller == 1)
+                    mainSkill = "Destruction - Pyromancer";
+                if (roller == 2)
+                    mainSkill = "Destruction - Cryomancer";
+                if (roller == 3)
+                    mainSkill = "Destruction - Electromancer";
+            }
+            else if (mainSkillRoll == "Restoration")
+            {
+                roller = RollRandom(1, 4);
+                if (roller == 1)
+                    mainSkill = "Restoration - Warder";
+                if (roller == 2)
+                    mainSkill = "Restoration - Cleanser";
+                if (roller == 3)
+                    mainSkill = "Restoration - Blighter";
+            }
+            else if (mainSkillRoll == "Alteration")
+                mainSkill = "Alteration";
+            else
+            {
+                Console.WriteLine("Error, Main Skill Not Added!");
+                mainSkill = "Error";
+            }
+            MainSkillTextBox.Text = "Main Skill: " + mainSkill;
+        }
+
+        private string RollOneHanded()
+        {
+            string weaponType;
+            string ohType;
+            MainSkillList.Clear();
+            PopulateMainSkills();
+            int roller = RollRandom(1, 4);
+            if (roller == 1)
+            {
+                weaponType = RollOneHandedWeaponType();
+                roller = RollRandom(1, 2);
+                if (roller == 1)
+                    ohType = "Dual " + weaponType + "s"; 
+                else 
+                {
+                    string weaponType2 = RollOneHandedWeaponType();
+                    ohType = "Dual " + weaponType + " and " + weaponType2;
+                }
+            }
+            else 
+            {
+                roller = RollRandom(1, 3);
+                if (roller == 1) 
+                {
+                    weaponType = RollOneHandedWeaponType();
+                    ohType = weaponType + " and Shield";
+                }
+                else 
+                {
+                    while (MainSkillList.Contains("One Handed"))
+                        MainSkillList.Remove("One Handed");
+                    while (MainSkillList.Contains("Two Handed"))
+                        MainSkillList.Remove("Two Handed");
+                    while (MainSkillList.Contains("Archery"))
+                        MainSkillList.Remove("Archery");
+                    roller = RollRandom(0, MainSkillList.Count());
+                    ohType = MainSkillList[roller] + " Spellsword";
+                }
+            }
+            return "One Handed - " + ohType;
+        }
+        private string RollOneHandedWeaponType()
+        {
+            string weapon;
+            int roller = RollRandom(1, 4);
+            if (roller == 1)
+                weapon = "Sword";
+            else if (roller == 2)
+                weapon = "Axe";
+            else
+                weapon = "Mace";
+            return weapon;
+        }
+
+        private string RollConjuration()
+        {
+            string spiritWeapon;
+            string magicType;
+            int roller = RollRandom(1, 4);
+            if (roller == 1)
+                spiritWeapon = "Sword";
+            else if (roller == 2)
+                spiritWeapon = "BattleAxe";
+            else
+                spiritWeapon = "Bow";
+            roller = RollRandom(1, 4);
+            if (roller == 1)
+                magicType = "Atronach Conjuration";
+            else if (roller == 2)
+                magicType = "Daedra Conjuration";
+            else
+                magicType = "Necro Conjuration";
+            SpiritWeaponTextBox.Text = "Spirit Weapon: " + spiritWeapon;
+            return "Conjuration - " + magicType;
+        }
+
         private void GenerateCharacter(object sender, RoutedEventArgs e)
         {
+            MainSkillList.Clear();
+            SecondarySkillList.Clear();
             SpiritWeaponTextBox.Text = "";
-            String mainSkill = RollMainSkill();
-            MainSkillTextBox.Text = "Main Skill: " + mainSkill;
             GenerateRace();
             GenerateGender();
             GenerateAlignment();
             GeneratePersonality();
+            PopulateMainSkills();
+            GenerateMainSkill();
         }
     }
 }
