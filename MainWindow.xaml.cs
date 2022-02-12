@@ -27,9 +27,8 @@ namespace SkyrimRandomCharacterGenerator
 
         List<string> MainSkillList = new List<string>();
         List<string> SecondarySkillList = new List<string>();
-        string[] SecondarySkills = new string[5];
-
-
+        List<string> ChosenSecondarySkills = new List<string>();
+        List<string> ArmorType = new List<string>();
 
         private int RollRandom(int start, int end)
         {
@@ -73,7 +72,6 @@ namespace SkyrimRandomCharacterGenerator
             MainSkillList.Add("Conjuration");
             MainSkillList.Add("Destruction");
             MainSkillList.Add("Restoration");
-            MainSkillList.Add("Alteration");
             AddRaceBias();
         }
         private void AddRaceBias()
@@ -81,19 +79,19 @@ namespace SkyrimRandomCharacterGenerator
             if (RaceTextBox.Text == "Race: Argonian")
             {
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Lockpicking");
                 SecondarySkillList.Add("Lockpicking");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Pickpocket");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Lockpicking");
                 SecondarySkillList.Add("Lockpicking");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Pickpocket");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
             }
             else if (RaceTextBox.Text == "Race: Breton")
             {
@@ -101,28 +99,28 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Speech");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Speech");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Speech");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Speech");
                 SecondarySkillList.Add("Alchemy");
             }
@@ -131,22 +129,22 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Destruction");
                 MainSkillList.Add("Destruction");
-                MainSkillList.Add("Alteration");
-                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Alteration");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Destruction");
                 MainSkillList.Add("Destruction");
-                MainSkillList.Add("Alteration");
-                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Alteration");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Destruction");
                 MainSkillList.Add("Destruction");
-                MainSkillList.Add("Alteration");
-                SecondarySkillList.Add("Light Armor");
+                SecondarySkillList.Add("Alteration");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Alchemy");
 
@@ -158,28 +156,28 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Destruction");
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Enchanting");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Destruction");
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Enchanting");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Destruction");
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Enchanting");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Illusion");
                 MainSkillList.Add("Conjuration");
                 MainSkillList.Add("Destruction");
                 MainSkillList.Add("Restoration");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Enchanting");
             }
             else if (RaceTextBox.Text == "Race: Imperial")
@@ -189,14 +187,14 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("Restoration");
                 MainSkillList.Add("Destruction");
                 SecondarySkillList.Add("Block");
-                SecondarySkillList.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
                 SecondarySkillList.Add("Enchanting");
                 MainSkillList.Add("One Handed");
                 MainSkillList.Add("Restoration");
                 MainSkillList.Add("Restoration");
                 MainSkillList.Add("Destruction");
                 SecondarySkillList.Add("Block");
-                SecondarySkillList.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
                 SecondarySkillList.Add("Enchanting");
             }
             else if (RaceTextBox.Text == "Race: Khajiit")
@@ -237,28 +235,28 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
                 SecondarySkillList.Add("Block");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Speech");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
                 SecondarySkillList.Add("Block");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Speech");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
                 SecondarySkillList.Add("Block");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Speech");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
                 SecondarySkillList.Add("Block");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Speech");
             }
             else if (RaceTextBox.Text == "Race: Orc")
@@ -266,43 +264,43 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
-                SecondarySkillList.Add("Heavy Armor");
-                SecondarySkillList.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Enchanting");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
-                SecondarySkillList.Add("Heavy Armor");
-                SecondarySkillList.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor"); 
+                ArmorType.Add("Heavy Armor");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Enchanting");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
-                SecondarySkillList.Add("Heavy Armor");
-                SecondarySkillList.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Enchanting");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
-                SecondarySkillList.Add("Heavy Armor");
-                SecondarySkillList.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Enchanting");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
-                SecondarySkillList.Add("Heavy Armor");
-                SecondarySkillList.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Enchanting");
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
-                SecondarySkillList.Add("Heavy Armor");
-                SecondarySkillList.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
+                ArmorType.Add("Heavy Armor");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Enchanting");
             }
@@ -312,21 +310,21 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("One Handed");
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Destruction");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Smithing");
                 MainSkillList.Add("One Handed");
                 MainSkillList.Add("One Handed");
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Destruction");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Smithing");
                 MainSkillList.Add("One Handed");
                 MainSkillList.Add("One Handed");
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Destruction");
-                MainSkillList.Add("Alteration");
+                SecondarySkillList.Add("Alteration");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Smithing");
 
@@ -335,28 +333,28 @@ namespace SkyrimRandomCharacterGenerator
             {
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Archery");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("LockPicking");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Archery");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("LockPicking");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Archery");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("LockPicking");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Archery");
-                SecondarySkillList.Add("Light Armor");
+                ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("LockPicking");
                 SecondarySkillList.Add("Pickpocket");
@@ -367,6 +365,7 @@ namespace SkyrimRandomCharacterGenerator
                 Console.WriteLine("ERROR, Racial Bias not added!");
             }
         }
+
         private void GenerateMainSkill()
         {
             int mainSkillNum = RollRandom(0, MainSkillList.Count);
@@ -379,11 +378,16 @@ namespace SkyrimRandomCharacterGenerator
             int roller;
             if (mainSkillRoll == "One Handed")
             {
+                ArmorType.Add("Light Armor");
+                ArmorType.Add("Heavy Armor");
                 mainSkill = RollOneHanded();
             }
             else if (mainSkillRoll == "Two Handed")
             {
                 roller = RollRandom(1, 4);
+                ChosenSecondarySkills.Add("Block");
+                ArmorType.Add("Light Armor");
+                ArmorType.Add("Heavy Armor");
                 if (roller == 1)
                     mainSkill = "Two Handed - Greatsword";
                 if (roller == 2)
@@ -393,6 +397,10 @@ namespace SkyrimRandomCharacterGenerator
             }
             else if (mainSkillRoll == "Archery")
             {
+                ArmorType.Clear();
+                ArmorType.Add("Light Armor");
+                ChosenSecondarySkills.Add("Sneak");
+                ChosenSecondarySkills.Add("One Handed - Dagger");
                 roller = RollRandom(1, 3);
                 if (roller == 1)
                     mainSkill = "Archery - Bow and Arrow";
@@ -401,12 +409,27 @@ namespace SkyrimRandomCharacterGenerator
             }
             else if (mainSkillRoll == "Conjuration")
             {
+                ArmorType.Clear();
+                ArmorType.Add("Light Armor");
+                ArmorType.Add("Heavy Armor");
+                ChosenSecondarySkills.Add("Enchanting");
+                ChosenSecondarySkills.Add("Alteration");
                 mainSkill = RollConjuration();
             }
             else if (mainSkillRoll == "Illusion")
+            {
+                ArmorType.Clear();
+                ArmorType.Add("Robes");
+                ChosenSecondarySkills.Add("Alteration");
                 mainSkill = "Illusion";
+                ChosenSecondarySkills.Add("Sneak");
+                ChosenSecondarySkills.Add("Speech");
+            }
             else if (mainSkillRoll == "Destruction")
             {
+                ArmorType.Clear();
+                ArmorType.Add("Robes");
+                ChosenSecondarySkills.Add("Alteration");
                 roller = RollRandom(1, 4);
                 if (roller == 1)
                     mainSkill = "Destruction - Pyromancer";
@@ -417,6 +440,10 @@ namespace SkyrimRandomCharacterGenerator
             }
             else if (mainSkillRoll == "Restoration")
             {
+                ArmorType.Clear();
+                ArmorType.Add("Robes");
+                ChosenSecondarySkills.Add("Alchemy");
+                ChosenSecondarySkills.Add("Alteration");
                 roller = RollRandom(1, 4);
                 if (roller == 1)
                     mainSkill = "Restoration - Warder";
@@ -425,8 +452,6 @@ namespace SkyrimRandomCharacterGenerator
                 if (roller == 3)
                     mainSkill = "Restoration - Blighter";
             }
-            else if (mainSkillRoll == "Alteration")
-                mainSkill = "Alteration";
             else
             {
                 Console.WriteLine("Error, Main Skill Not Added!");
@@ -434,45 +459,47 @@ namespace SkyrimRandomCharacterGenerator
             }
             MainSkillTextBox.Text = "Main Skill: " + mainSkill;
         }
-
         private string RollOneHanded()
         {
             string weaponType;
             string ohType;
-            MainSkillList.Clear();
-            PopulateMainSkills();
             int roller = RollRandom(1, 4);
             if (roller == 1)
             {
-                weaponType = RollOneHandedWeaponType();
-                roller = RollRandom(1, 2);
+                ArmorType.Add("Light Armor");
+                weaponType = RollOneHandedWeaponTypeDual();
+                roller = RollRandom(1, 3);
                 if (roller == 1)
-                    ohType = "Dual " + weaponType + "s"; 
-                else 
+                    ohType = "Dual " + weaponType + "s";
+                else
                 {
-                    string weaponType2 = RollOneHandedWeaponType();
+                    string weaponType2 = RollOneHandedWeaponTypeDual();
                     ohType = "Dual " + weaponType + " and " + weaponType2;
                 }
             }
-            else 
+            else if (roller == 2)
             {
-                roller = RollRandom(1, 3);
-                if (roller == 1) 
-                {
-                    weaponType = RollOneHandedWeaponType();
-                    ohType = weaponType + " and Shield";
-                }
-                else 
-                {
-                    while (MainSkillList.Contains("One Handed"))
-                        MainSkillList.Remove("One Handed");
-                    while (MainSkillList.Contains("Two Handed"))
-                        MainSkillList.Remove("Two Handed");
-                    while (MainSkillList.Contains("Archery"))
-                        MainSkillList.Remove("Archery");
-                    roller = RollRandom(0, MainSkillList.Count());
-                    ohType = MainSkillList[roller] + " Spellsword";
-                }
+                ArmorType.Add("Heavy Armor");
+                weaponType = RollOneHandedWeaponType();
+                ohType = weaponType + " and Shield";
+                ChosenSecondarySkills.Add("Block");
+            }
+            else
+            {
+                ArmorType.Add("Light Armor");
+                weaponType = RollOneHandedWeaponType();
+                MainSkillList.Clear();
+                PopulateMainSkills();
+                while (MainSkillList.Contains("One Handed"))
+                    MainSkillList.Remove("One Handed");
+                while (MainSkillList.Contains("Two Handed"))
+                    MainSkillList.Remove("Two Handed");
+                while (MainSkillList.Contains("Archery"))
+                    MainSkillList.Remove("Archery");
+                roller = RollRandom(0, MainSkillList.Count());
+                ChosenSecondarySkills.Add(MainSkillList[roller]);
+                ChosenSecondarySkills.Add("Alteration");
+                ohType = MainSkillList[roller] + " " + weaponType + " Spellsword";
             }
             return "One Handed - " + ohType;
         }
@@ -484,22 +511,49 @@ namespace SkyrimRandomCharacterGenerator
                 weapon = "Sword";
             else if (roller == 2)
                 weapon = "Axe";
-            else
+            else 
                 weapon = "Mace";
             return weapon;
         }
-
+        private string RollOneHandedWeaponTypeDual()
+        {
+            string weapon;
+            int roller = RollRandom(1, 5);
+            if (roller == 1)
+                weapon = "Sword";
+            else if (roller == 2)
+                weapon = "Axe";
+            else if (roller == 3)
+                weapon = "Mace";
+            else
+                weapon = "Dagger";
+            return weapon;
+        }
         private string RollConjuration()
         {
             string spiritWeapon;
             string magicType;
             int roller = RollRandom(1, 4);
             if (roller == 1)
+            {
                 spiritWeapon = "Sword";
+                string weaponType;
+                if (RollRandom(1, 3) == 1)
+                    weaponType = "Dual Swords";
+                else
+                    weaponType = "Sword";
+                ChosenSecondarySkills.Add("One Handed - " + weaponType);
+            }
             else if (roller == 2)
+            {
                 spiritWeapon = "BattleAxe";
+                ChosenSecondarySkills.Add("Two Handed - BattleAxe");
+            }
             else
+            {
                 spiritWeapon = "Bow";
+                ChosenSecondarySkills.Add("Archery - Bow and Arrow");
+            }
             roller = RollRandom(1, 4);
             if (roller == 1)
                 magicType = "Atronach Conjuration";
@@ -511,10 +565,59 @@ namespace SkyrimRandomCharacterGenerator
             return "Conjuration - " + magicType;
         }
 
+        private void PopulateSecondarySkills() 
+        {
+            SecondarySkillList.Add("Enchanting");
+            SecondarySkillList.Add("Smithing");
+            SecondarySkillList.Add("Sneak");
+            SecondarySkillList.Add("Lockpick");
+            SecondarySkillList.Add("Pickpocket");
+            SecondarySkillList.Add("Speech");
+            SecondarySkillList.Add("Alchemy");
+        }
+        private void GenerateSecondarySkills() 
+        {
+            int roller;
+            string chosenSkill;
+            for (int i = 0; i < ChosenSecondarySkills.Count; i++)
+            {
+                chosenSkill = ChosenSecondarySkills[i];
+                if (SecondarySkillList.Contains(chosenSkill))
+                {
+                    while (SecondarySkillList.Contains(chosenSkill))
+                        SecondarySkillList.Remove(chosenSkill);
+                }
+            }
+
+            while (ChosenSecondarySkills.Count() < 5)
+            {
+                roller = RollRandom(0, SecondarySkillList.Count());
+                chosenSkill = SecondarySkillList[roller];
+                ChosenSecondarySkills.Add(chosenSkill);
+                while (SecondarySkillList.Contains(chosenSkill))
+                    SecondarySkillList.Remove(chosenSkill);
+            }
+            SecondarySkillLabel.Text = "Secondary Skills: ";
+            SecondarySkillBox1.Content = ChosenSecondarySkills[0];
+            SecondarySkillBox2.Content = ChosenSecondarySkills[1];
+            SecondarySkillBox3.Content = ChosenSecondarySkills[2];
+            SecondarySkillBox4.Content = ChosenSecondarySkills[3];
+            SecondarySkillBox5.Content = ChosenSecondarySkills[4];
+        }
+
+        private void GenerateArmorType() 
+        {
+            int roller = RollRandom(0, ArmorType.Count());
+            string armorType = ArmorType[roller];
+            ArmorTextBox.Text = "Armor: " + armorType;
+        }
+
         private void GenerateCharacter(object sender, RoutedEventArgs e)
         {
             MainSkillList.Clear();
             SecondarySkillList.Clear();
+            ChosenSecondarySkills.Clear();
+            ArmorType.Clear();
             SpiritWeaponTextBox.Text = "";
             GenerateRace();
             GenerateGender();
@@ -522,6 +625,9 @@ namespace SkyrimRandomCharacterGenerator
             GeneratePersonality();
             PopulateMainSkills();
             GenerateMainSkill();
+            PopulateSecondarySkills();
+            GenerateSecondarySkills();
+            GenerateArmorType();
         }
     }
 }

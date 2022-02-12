@@ -6,11 +6,9 @@
         xmlns:local="clr-namespace:SkyrimRandomCharacterGenerator"
         mc:Ignorable="d"
         Title="SkyrimChracterGenerator" Height="450" Width="800">
-    <Grid>
-        <Button Content="Generate Skyrim Character" Click="GenerateCharacter" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
-        <StackPanel Margin="200,30,200,5">
-            
-            
+    <Grid Background="Black">
+        <Button Content="Generate Skyrim Character" Background="DarkGray" Click="GenerateCharacter" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <StackPanel Margin="200,30,200,5" Background="DarkGray">
             <TextBlock x:Name="RaceTextBox" Text=""></TextBlock>
             <TextBlock x:Name="GenderTextBox" Text=""></TextBlock>
             <TextBlock></TextBlock>
@@ -19,6 +17,20 @@
             <TextBlock></TextBlock>
             <TextBlock x:Name="MainSkillTextBox" Text=""></TextBlock>
             <TextBlock x:Name="SpiritWeaponTextBox" Text=""></TextBlock>
+            <TextBlock x:Name="SecondarySkillLabel" Text = ""></TextBlock>
+            <TextBlock></TextBlock>
+            <TextBlock>
+                <ListBox Name = "SecondarySkillListBox" Background="DarkGray">
+                    <ListBoxItem x:Name="SecondarySkillBox1" Content = ""/>
+                    <ListBoxItem x:Name="SecondarySkillBox2" Content = ""/>
+                    <ListBoxItem x:Name="SecondarySkillBox3" Content = ""/>
+                    <ListBoxItem x:Name="SecondarySkillBox4" Content = ""/>
+                    <ListBoxItem x:Name="SecondarySkillBox5" Content = ""/>
+                </ListBox>
+            </TextBlock>
+
+            <TextBlock></TextBlock>
+            <TextBlock x:Name="ArmorTextBox" Text=""></TextBlock>
         </StackPanel>
 
     </Grid>
