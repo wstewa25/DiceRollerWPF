@@ -27,6 +27,8 @@
                     <ListBoxItem x:Name="SecondarySkillBox4" Content = ""/>
                     <ListBoxItem x:Name="SecondarySkillBox5" Content = ""/>
                 </ListBox>
+                <LineBreak></LineBreak>
+                <TextBox x:Name="StandingStoneTextBox" Text= ""></TextBox>
             </TextBlock>
 
             <TextBlock></TextBlock>

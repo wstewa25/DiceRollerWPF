@@ -271,7 +271,7 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("Two Handed");
                 MainSkillList.Add("One Handed");
                 SecondarySkillList.Add("Smithing");
-                ArmorType.Add("Heavy Armor"); 
+                ArmorType.Add("Heavy Armor");
                 ArmorType.Add("Heavy Armor");
                 SecondarySkillList.Add("Block");
                 SecondarySkillList.Add("Enchanting");
@@ -511,7 +511,7 @@ namespace SkyrimRandomCharacterGenerator
                 weapon = "Sword";
             else if (roller == 2)
                 weapon = "Axe";
-            else 
+            else
                 weapon = "Mace";
             return weapon;
         }
@@ -565,7 +565,7 @@ namespace SkyrimRandomCharacterGenerator
             return "Conjuration - " + magicType;
         }
 
-        private void PopulateSecondarySkills() 
+        private void PopulateSecondarySkills()
         {
             SecondarySkillList.Add("Enchanting");
             SecondarySkillList.Add("Smithing");
@@ -575,7 +575,7 @@ namespace SkyrimRandomCharacterGenerator
             SecondarySkillList.Add("Speech");
             SecondarySkillList.Add("Alchemy");
         }
-        private void GenerateSecondarySkills() 
+        private void GenerateSecondarySkills()
         {
             int roller;
             string chosenSkill;
@@ -605,11 +605,75 @@ namespace SkyrimRandomCharacterGenerator
             SecondarySkillBox5.Content = ChosenSecondarySkills[4];
         }
 
-        private void GenerateArmorType() 
+        private void GenerateArmorType()
         {
             int roller = RollRandom(0, ArmorType.Count());
             string armorType = ArmorType[roller];
             ArmorTextBox.Text = "Armor: " + armorType;
+        }
+
+        private void GenerateStandingStone() 
+        {
+            List<string> standingStoneList = new List<string>();
+            standingStoneList = AddStoneBias(standingStoneList);
+            StandingStoneTextBox.Text = "Standing Stone: " + RollStandingStone(standingStoneList);
+        }
+
+        private List<string> AddStoneBias(List<string> standingStoneList) 
+        {
+            string mainSkill = MainSkillTextBox.Text;
+            if (mainSkill.Contains("Destruction") || mainSkill.Contains("Conjuration") || mainSkill.Contains("Illusion") || mainSkill.Contains("Restoration"))
+            {
+                standingStoneList.Add("Apprentice");
+                standingStoneList.Add("Atronach");
+                standingStoneList.Add("Lady");
+                standingStoneList.Add("Lord");
+                standingStoneList.Add("Lover");
+                standingStoneList.Add("Mage");
+                standingStoneList.Add("Mage");
+                standingStoneList.Add("Mage");
+                standingStoneList.Add("Steed");
+                standingStoneList.Add("Tower");
+            }
+            else 
+            {
+                standingStoneList.Add("Lady");
+                standingStoneList.Add("Lord");
+                standingStoneList.Add("Lover");
+                standingStoneList.Add("Serpent");
+                standingStoneList.Add("Shadow");
+                standingStoneList.Add("Steed");
+                standingStoneList.Add("Tower");
+                standingStoneList.Add("Warrior");
+                standingStoneList.Add("Warrior");
+                standingStoneList.Add("Warrior");
+            }
+            if (mainSkill.Contains("Conjuration"))
+            {
+                standingStoneList.Add("Ritual");
+                standingStoneList.Add("Ritual");
+                standingStoneList.Add("Ritual");
+            }
+            if (ChosenSecondarySkills.Contains("Sneak"))
+            {
+                standingStoneList.Add("Thief");
+                standingStoneList.Add("Thief");
+                standingStoneList.Add("Thief");
+                standingStoneList.Add("Tower");
+                standingStoneList.Add("Tower");
+                standingStoneList.Add("Tower");
+                standingStoneList.Add("Shadow");
+                standingStoneList.Add("Shadow");
+                standingStoneList.Add("Shadow");
+            }
+            return standingStoneList;
+        }
+
+        private string RollStandingStone(List<string> standingStoneList)
+        {
+            string standingStone;
+            standingStone = standingStoneList[RollRandom(0, standingStoneList.Count())];
+            return standingStone;
         }
 
         private void GenerateCharacter(object sender, RoutedEventArgs e)
@@ -628,6 +692,7 @@ namespace SkyrimRandomCharacterGenerator
             PopulateSecondarySkills();
             GenerateSecondarySkills();
             GenerateArmorType();
+            GenerateStandingStone();
         }
     }
 }
