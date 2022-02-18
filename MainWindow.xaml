@@ -17,6 +17,7 @@
             <TextBlock></TextBlock>
             <TextBlock x:Name="MainSkillTextBox" Text=""></TextBlock>
             <TextBlock x:Name="SpiritWeaponTextBox" Text=""></TextBlock>
+            <TextBlock></TextBlock>
             <TextBlock x:Name="SecondarySkillLabel" Text = ""></TextBlock>
             <TextBlock></TextBlock>
             <TextBlock>
@@ -28,9 +29,9 @@
                     <ListBoxItem x:Name="SecondarySkillBox5" Content = ""/>
                 </ListBox>
                 <LineBreak></LineBreak>
-                <TextBox x:Name="StandingStoneTextBox" Text= ""></TextBox>
             </TextBlock>
-
+            <TextBlock></TextBlock>
+            <TextBox x:Name="StandingStoneTextBox" Text="" Background="DarkGray"></TextBox>
             <TextBlock></TextBlock>
             <TextBlock x:Name="ArmorTextBox" Text=""></TextBlock>
         </StackPanel>

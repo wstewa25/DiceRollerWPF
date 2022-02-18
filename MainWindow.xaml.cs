@@ -80,15 +80,15 @@ namespace SkyrimRandomCharacterGenerator
             {
                 MainSkillList.Add("Restoration");
                 SecondarySkillList.Add("Alteration");
-                SecondarySkillList.Add("Lockpicking");
-                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Lockpick");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Pickpocket");
                 ArmorType.Add("Light Armor");
                 MainSkillList.Add("Restoration");
                 SecondarySkillList.Add("Alteration");
-                SecondarySkillList.Add("Lockpicking");
-                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Lockpick");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Pickpocket");
                 ArmorType.Add("Light Armor");
@@ -203,28 +203,28 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("Archery");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Sneak");
-                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("One Handed");
                 MainSkillList.Add("Archery");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Sneak");
-                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("One Handed");
                 MainSkillList.Add("Archery");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Sneak");
-                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("One Handed");
                 MainSkillList.Add("Archery");
                 SecondarySkillList.Add("Sneak");
                 SecondarySkillList.Add("Sneak");
-                SecondarySkillList.Add("Lockpicking");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
             }
@@ -335,28 +335,28 @@ namespace SkyrimRandomCharacterGenerator
                 MainSkillList.Add("Archery");
                 ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
-                SecondarySkillList.Add("LockPicking");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Archery");
                 ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
-                SecondarySkillList.Add("LockPicking");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Archery");
                 ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
-                SecondarySkillList.Add("LockPicking");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
                 MainSkillList.Add("Archery");
                 MainSkillList.Add("Archery");
                 ArmorType.Add("Light Armor");
                 SecondarySkillList.Add("Sneak");
-                SecondarySkillList.Add("LockPicking");
+                SecondarySkillList.Add("Lockpick");
                 SecondarySkillList.Add("Pickpocket");
                 SecondarySkillList.Add("Alchemy");
             }
@@ -617,6 +617,7 @@ namespace SkyrimRandomCharacterGenerator
             List<string> standingStoneList = new List<string>();
             standingStoneList = AddStoneBias(standingStoneList);
             StandingStoneTextBox.Text = "Standing Stone: " + RollStandingStone(standingStoneList);
+            standingStoneList.Clear();
         }
 
         private List<string> AddStoneBias(List<string> standingStoneList) 
@@ -693,6 +694,7 @@ namespace SkyrimRandomCharacterGenerator
             GenerateSecondarySkills();
             GenerateArmorType();
             GenerateStandingStone();
+            
         }
     }
 }
